@@ -59,14 +59,15 @@ cuts = [(29.5, 36.0, 1.0, None), (36.0, 40.0, 1.12, 1), (40.0, 48.0, 1.0, 2), (4
 for ss, e, P, lb in cuts:
     add(ss, e - ss, P, lb, "speak")
 # OUTRO visuals (VO plays; original audio muted)
-add(148.0, 10.0, 1.0, part="outro"); add(0.0, fr(17.7) - fr(10.0), 1.12, part="outro")
+# outro visuals: only the door-exit scene (speaker not talking), then branded keyword card (no lip-sync clash with VO)
+add(155.5, 3.7, 1.0, part="outro")
 t = 0.0
 for s in shots:
     s["t0"] = t; t += s["d"]
 HOOK_END = sum(s["d"] for s in shots if s["part"] == "hook")
 SPEAK_END = HOOK_END + sum(s["d"] for s in shots if s["part"] == "speak")
 OUTRO_T0 = SPEAK_END
-CTA_T0 = t
+CARD_T0 = t; CARD_D = fr(17.7) - fr(3.7); CTA_T0 = CARD_T0 + CARD_D
 CTA_MAIN = fr(VO2 + OUTRO_T0 - CTA_T0); END_D = fr(5.0); CTA_D = CTA_MAIN + END_D   # CTA card + 5 s logo end card
 TOTAL = CTA_T0 + CTA_D
 print(f"VO intro {VO1:.2f}s | speaker {SPEAK_END-HOOK_END:.2f}s | VO outro {VO2:.2f}s | total {TOTAL:.2f}s")
@@ -117,7 +118,7 @@ def logo_asset():
     rows = [y for y in range(h) if sum(im.getpixel((x, y))[2] for x in range(0, w, 8)) / (w // 8) > 60]
     box = im.crop((0, rows[0], w, rows[-1] + 1)); box.save(f"{B}/logo.png"); return box
 
-def cta_background(path, logo, centered=False):
+def cta_background(path, logo, centered=False, small=False):
     bg = Image.new("RGB", (W, H), NAVY); px = bg.load()
     for y in range(H):
         for x in range(0, W, 4):
@@ -125,8 +126,8 @@ def cta_background(path, logo, centered=False):
             c = (int(NAVY[0] + (BLUE[0] - NAVY[0]) * k * 0.55), int(NAVY[1] + (BLUE[1] - NAVY[1]) * k * 0.55),
                  int(NAVY[2] + (BLUE[2] - NAVY[2]) * k * 0.55))
             for dx in range(4): px[x + dx, y] = c
-    lw = 960 if centered else 800; lh = int(logo.size[1] * lw / logo.size[0])
-    bg.paste(logo.resize((lw, lh), Image.LANCZOS), ((W - lw) // 2, (H - lh) // 2 if centered else 260))
+    lw = 560 if small else (960 if centered else 800); lh = int(logo.size[1] * lw / logo.size[0])
+    bg.paste(logo.resize((lw, lh), Image.LANCZOS), ((W - lw) // 2, (H - lh) // 2 if centered else (170 if small else 260)))
     bg.save(path)
 
 def phone_png(path):
@@ -136,6 +137,14 @@ def phone_png(path):
     d.text((440, 190), "010-939 1557", font=font(FX, 112), fill=YEL, anchor="mm")
     d.text((440, 305), "Terapi Tok Wan  •  Cawangan Bentong", font=font(FB, 36), fill=WHITE, anchor="mm")
     im.save(path)
+
+def keyword_png(text, path, size, width):
+    f = font(FX, size); lines = text.split("\n"); lh = int(size * 1.2); h = lh * len(lines) + 50
+    im = Image.new("RGBA", (width, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im); y = 25 + lh // 2
+    for l in lines:
+        d.text((width // 2, y), l, font=f, fill=WHITE, anchor="mm"); y += lh
+    d.rounded_rectangle([width // 2 - 120, h - 14, width // 2 + 120, h - 6], 4, fill=YEL)
+    im.save(path); return im.size
 
 def place_png(path):
     im = Image.new("RGBA", (880, 110), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
@@ -170,10 +179,14 @@ for off, subs, tag in ((0.0, VO_SUBS_IN, "in"), (OUTRO_T0, VO_SUBS_OUT, "out")):
         p = f"{B}/sub_{tag}_{i}.png"; sw, sh_ = subtitle_png(txt, p)
         ov(p, (W - sw) // 2, 1000, off + a, off + b)
 
-logo = logo_asset(); cta_background(f"{B}/cta_bg.png", logo); cta_background(f"{B}/end_bg.png", logo, centered=True)
+logo = logo_asset(); cta_background(f"{B}/cta_bg.png", logo); cta_background(f"{B}/end_bg.png", logo, centered=True); cta_background(f"{B}/card_bg.png", logo, small=True)
 phone_png(f"{B}/phone.png"); place_png(f"{B}/place.png")
 ov(f"{B}/phone.png", (W - 880) // 2, 700, OUTRO_T0 + 18.52, OUTRO_T0 + 29.6)
 ov(f"{B}/place.png", (W - 880) // 2, 1120, OUTRO_T0 + 27.41, OUTRO_T0 + 29.6)
+KW = [(4.0, 8.0, "KESESUAIAN RAWATAN\nBERBEZA\nMENGIKUT KEADAAN"), (8.64, 14.25, "SAKIT PINGGANG\nMENGGANGGU\nAKTIVITI HARIAN?"), (14.43, 17.6, "DAPATKAN\nPEMERIKSAAN")]
+for i, (a, b, txt) in enumerate(KW):
+    p = f"{B}/kw_{i}.png"; kw_, kh_ = keyword_png(txt, p, 66, 900)
+    ov(p, (W - kw_) // 2, 560, OUTRO_T0 + a, OUTRO_T0 + b)
 
 
 # ---------------------------------------------------------------- pass A: base shots
@@ -197,7 +210,7 @@ parts = []
 for i, s_ in enumerate(shots):
     pth = shot_path(s_)
     parts.append(pth if (os.environ.get("REUSE_SHOTS") and os.path.exists(pth)) else render_shot(i, s_))
-for png, d_, name in ((f"{B}/cta_bg.png", CTA_MAIN, "cta_base"), (f"{B}/end_bg.png", END_D, "end_base")):
+for png, d_, name in ((f"{B}/card_bg.png", CARD_D, "card_base"), (f"{B}/cta_bg.png", CTA_MAIN, "cta_base"), (f"{B}/end_bg.png", END_D, "end_base")):
     sh(["ffmpeg", "-y", "-v", "error", "-loop", "1", "-framerate", str(FPS), "-t", f"{d_}", "-i", png,
         "-vf", "format=yuv420p", "-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", f"{B}/{name}.mp4"])
     parts.append(f"{B}/{name}.mp4")
@@ -210,6 +223,8 @@ sh(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", f"{B}/con
 inputs, chains = ["-i", base], []
 blk = [("open", f"fade=t=out:st=0:d=0.3:alpha=1"),
        ("dip1", f"fade=t=in:st={HOOK_END-0.12:.3f}:d=0.12:alpha=1,fade=t=out:st={HOOK_END:.3f}:d=0.12:alpha=1"),
+       ("dipo", f"fade=t=in:st={OUTRO_T0-0.12:.3f}:d=0.12:alpha=1,fade=t=out:st={OUTRO_T0:.3f}:d=0.12:alpha=1"),
+       ("dipc", f"fade=t=in:st={CARD_T0-0.12:.3f}:d=0.12:alpha=1,fade=t=out:st={CARD_T0:.3f}:d=0.12:alpha=1"),
        ("dip2", f"fade=t=in:st={CTA_T0-0.12:.3f}:d=0.12:alpha=1,fade=t=out:st={CTA_T0:.3f}:d=0.12:alpha=1"),
        ("dip3", f"fade=t=in:st={CTA_T0+CTA_MAIN-0.12:.3f}:d=0.12:alpha=1,fade=t=out:st={CTA_T0+CTA_MAIN:.3f}:d=0.12:alpha=1"),
        ("close", f"fade=t=in:st={TOTAL-0.8:.3f}:d=0.8:alpha=1")]
