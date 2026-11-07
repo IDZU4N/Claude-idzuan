@@ -1,0 +1,8 @@
+# Public repo: never commit footage (third-party clip, patient, cloned voice audio) or renders
+source/
+build/
+out/
+*.mp4
+*.mov
+*.mp3
+*.wav
