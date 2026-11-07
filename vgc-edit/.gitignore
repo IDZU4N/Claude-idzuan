@@ -6,3 +6,5 @@ out/
 *.mov
 *.mp3
 *.wav
+__pycache__/
+*.pyc
