@@ -45,11 +45,12 @@ LABELS = {
     5: "JUMPA TERAPI TOK WAN", 6: "3 MINGGU TAK BOLEH BERJALAN", 7: "NAIK KERUSI RODA",
     8: "SELEPAS RAWATAN PERTAMA, BOLEH DRIVE", 9: "PERASAAN TAKUT", 10: "TERIMA KASIH TERAPI TOK WAN"}
 shots = []   # dicts: ss, d, P, label, part
-def add(ss, d, P, label=None, part=""):
-    shots.append(dict(ss=ss, d=fr(d), P=P, label=label, part=part))
+def add(ss, d, P, label=None, part="", k=1.0):   # k > 1 = very slight slow-down to fit the VO length
+    shots.append(dict(ss=ss, d=fr(d), P=P, label=label, part=part, k=k))
 # HOOK
-add(96.0, 5.5, 1.0, part="hook"); add(101.5, VO1 - fr(5.5) - fr(10.96), 1.12, part="hook")
-add(9.5, 10.96, 1.0, part="hook")
+# hook: only scenes WITHOUT the speaker (no lip-sync clash) and without burned-in captions, then the TikTok clip
+add(97.6, 2.75, 1.0, part="hook"); add(102.45, 3.3, 1.12, part="hook"); add(110.35, 1.8, 1.0, part="hook")
+add(7.35, VO1 - fr(2.75) - fr(3.3) - fr(1.8), 1.0, part="hook", k=1.02)
 # SPEAK  (label shot boundaries follow the burned-in captions that I read)
 cuts = [(29.5, 36.0, 1.0, None), (36.0, 40.0, 1.12, 1), (40.0, 48.0, 1.0, 2), (48.0, 54.0, 1.12, 3),
         (54.0, 60.5, 1.0, 4), (60.5, 64.0, 1.12, 5), (64.0, 69.5, 1.0, 6), (69.5, 72.9, 1.12, 7),
@@ -176,20 +177,26 @@ ov(f"{B}/place.png", (W - 1200) // 2, 860, OUTRO_T0 + 27.41, OUTRO_T0 + 29.6)
 
 
 # ---------------------------------------------------------------- pass A: base shots
+def shot_path(s):
+    return f"{B}/shot_{int(round(s['ss']*1000))}_{int(round(s['d']*1000))}_{int(round(s['P']*100))}_{int(round(s.get('k',1.0)*1000))}.mp4"
+
 def render_shot(i, s):
-    P, ss, d = s["P"], s["ss"], s["d"]
+    P, ss, d, k = s["P"], s["ss"], s["d"], s.get("k", 1.0)
     fw, fh = int(540 * P) // 2 * 2, int(1080 * P) // 2 * 2
     cx, cy = (fw - 540) // 2, int((fh - 1080) * 0.2)
-    fc = (f"[0:v]fps={FPS},setsar=1,split=2[a][b];"
+    fc = (f"[0:v]setpts=PTS*{k},fps={FPS},setsar=1,split=2[a][b];"
           f"[a]scale=640:-2,crop=640:360,boxblur=6:2,eq=brightness=-0.18:saturation=0.85,scale={W}:{H}:flags=bilinear[bg];"
           f"[b]scale={fw}:{fh}:flags=lanczos,crop=540:1080:{cx}:{cy}[fg];[bg][fg]overlay=690:0,format=yuv420p[v]")
-    out = f"{B}/shot_{i:02d}.mp4"
-    sh(["ffmpeg", "-y", "-v", "error", "-ss", f"{ss}", "-t", f"{d}", "-i", SRC, "-filter_complex", fc, "-map", "[v]",
-        "-an", "-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", "-pix_fmt", "yuv420p", out])
-    return out
+    out = shot_path(s) + ".part.mp4"
+    sh(["ffmpeg", "-y", "-v", "error", "-ss", f"{ss}", "-t", f"{d / k:.4f}", "-i", SRC, "-filter_complex", fc, "-map", "[v]",
+        "-an", "-r", str(FPS), "-frames:v", str(round(d * FPS)), "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", "-pix_fmt", "yuv420p", out])
+    os.replace(out, shot_path(s))
+    return shot_path(s)
 
-REUSE = bool(os.environ.get('REUSE_SHOTS')) and all(os.path.exists(f'{B}/shot_{i:02d}.mp4') for i in range(len(shots)))
-parts = [f'{B}/shot_{i:02d}.mp4' if REUSE else render_shot(i, s) for i, s in enumerate(shots)]
+parts = []
+for i, s_ in enumerate(shots):
+    pth = shot_path(s_)
+    parts.append(pth if (os.environ.get("REUSE_SHOTS") and os.path.exists(pth)) else render_shot(i, s_))
 for png, d_, name in ((f"{B}/cta_bg.png", CTA_MAIN, "cta_base"), (f"{B}/end_bg.png", END_D, "end_base")):
     sh(["ffmpeg", "-y", "-v", "error", "-loop", "1", "-framerate", str(FPS), "-t", f"{d_}", "-i", png,
         "-vf", "format=yuv420p", "-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", f"{B}/{name}.mp4"])
@@ -241,8 +248,8 @@ for i, (kind, path, ss, d, plen) in enumerate(pieces):
     print(f"audio piece {i} ({kind}): measured {loud:.1f} LUFS -> gain {gain:+.1f} dB")
     a_in += [*pre, "-i", path]
     fade = 0.12
-    a_chain.append(f"[{i}:a]pan=stereo|c0=c0|c1=c{'0' if kind=='vo' else '1'},aresample=44100,volume={gain:.2f}dB,"
-                   f"{'acompressor=threshold=-20dB:ratio=2.5:attack=5:release=90,' if kind=='vo' else ''}alimiter=limit=0.84:level=disabled,afade=t=in:st=0:d={fade},afade=t=out:st={plen-fade:.3f}:d={fade},"
+    a_chain.append(f"[{i}:a]pan=stereo|c0=c0|c1=c{'0' if kind=='vo' else '1'},aresample=44100,{'acompressor=threshold=-20dB:ratio=2.5:attack=5:release=90,' if kind=='vo' else ''}volume={gain:.2f}dB,"
+                   f"alimiter=limit=0.84:level=disabled,afade=t=in:st=0:d={fade},afade=t=out:st={plen-fade:.3f}:d={fade},"
                    f"apad=whole_dur={fr(plen):.4f},atrim=0:{fr(plen):.4f}[a{i}]")
 a_chain.append("".join(f"[a{i}]" for i in range(len(pieces))) + f"concat=n={len(pieces)}:v=0:a=1,apad=whole_dur={TOTAL:.3f},atrim=0:{TOTAL:.3f}[aout]")
 audio = f"{B}/audio_mix.m4a"
