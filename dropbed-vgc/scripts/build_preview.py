@@ -71,14 +71,14 @@ def wrap(draw, text, path, size, maxw):
 
 
 def panel_png(i, small, main, big=False):
-    pw, ph = (980, 420) if big else (960, 0)
+    pw, ph = (980, 330) if big else (960, 0)
     d0 = ImageDraw.Draw(Image.new("RGBA", (10, 10)))
     msize = 64 if big else 54
     f_main, lines = wrap(d0, main, FX, msize, pw - 110)
-    f_small = fit(d0, small, FB, 34 if not big else 40, pw - 110)
+    f_small = fit(d0, small, FB, 40 if not big else 44, pw - 110)
     lh = int(msize * 1.18)
     if not big:
-        ph = 50 + 44 + 14 + lh * len(lines) + 46
+        ph = 50 + 48 + 14 + lh * len(lines) + 46
     sc = 2                                                   # supersample for crisp edges
     im = Image.new("RGBA", (pw * sc, ph * sc), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
@@ -160,7 +160,7 @@ def main():
     items.append((END_CARD[0] + 0.15, END_CARD[1], *ec))
 
     inputs = ["-i", SRC, "-i", f"{B}/music.wav", "-i", f"{B}/sfx.wav"]
-    fc = [f"[0:v]scale={W}:{H}:flags=lanczos,unsharp=5:5:0.6,tpad=stop_mode=clone:stop_duration={TOTAL - SRC_DUR:.2f},fps={FPS}[v0]"]
+    fc = [f"[0:v]hqdn3d=2:2:3:3,scale={W}:{H}:flags=lanczos,unsharp=5:5:0.9:3:3:0.3,eq=brightness=0.04:contrast=1.08:saturation=1.12,tpad=stop_mode=clone:stop_duration={TOTAL - SRC_DUR:.2f},fps={FPS}[v0]"]
     fc.append(f"[v0]drawbox=x=0:y=0:w=iw:h=ih:color=0x102945@0.62:t=fill:enable='gte(t,{SRC_DUR})'[v1]")
     last = "v1"
     for k, (a, b, p, pw, ph) in enumerate(items):
@@ -169,7 +169,7 @@ def main():
         fc.append(f"[{idx}:v]format=rgba,fade=t=in:st=0:d=0.35:alpha=1,fade=t=out:st={D - 0.3:.2f}:d=0.3:alpha=1,setpts=PTS+{a}/TB[p{k}]")
         big = k == len(items) - 1
         x = (W - pw) // 2
-        y0 = 760 if big else 170
+        y0 = 800 if big else 170
         fc.append(f"[{last}][p{k}]overlay=x={x}:y='{y0}+pow(1-min(1,max(0,(t-{a})/0.5)),3)*70':"
                   f"enable='between(t,{a},{b})':eof_action=pass[o{k}]")
         last = f"o{k}"
@@ -182,7 +182,7 @@ def main():
     fc.append("[sp][mud][sx]amix=inputs=3:duration=first:normalize=0:dropout_transition=0,"
               "alimiter=limit=0.89:level=disabled[a]")
     cmd = ["ffmpeg", "-v", "error", "-y", *inputs, "-filter_complex", ";".join(fc), "-map", f"[{last}]", "-map", "[a]",
-           "-t", f"{TOTAL}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "25", "-pix_fmt", "yuv420p",
+           "-t", f"{TOTAL}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "26", "-pix_fmt", "yuv420p",
            "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", out]
     sh(cmd)
     print(out)
