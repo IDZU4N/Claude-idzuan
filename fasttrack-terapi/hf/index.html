@@ -18,6 +18,13 @@
        background:rgba(0,229,255,.15);}
   .fill{position:absolute;left:30px;top:150px;width:202px;height:12px;border-radius:6px;
         background:#00e5ff;box-shadow:0 0 12px #00e5ff;transform-origin:0 50%;transform:scaleX(0);opacity:0;}
+  .cta{position:absolute;left:36px;top:1006px;width:648px;height:226px;opacity:0;box-sizing:border-box;
+       background:rgba(6,9,14,.88);border:2px solid #00e5ff;border-radius:18px;
+       box-shadow:0 0 22px rgba(0,229,255,.6), inset 0 0 26px rgba(0,229,255,.2);
+       font-family:'DejaVu Sans','Arial',sans-serif;text-align:center;color:#fff;}
+  .cta .msg{position:absolute;left:28px;right:28px;top:22px;font-size:29px;line-height:36px;font-weight:700;}
+  .cta .num{position:absolute;left:0;right:0;top:132px;font-size:56px;line-height:64px;font-weight:800;
+            letter-spacing:3px;color:#00e5ff;text-shadow:0 0 14px #00e5ff,0 0 30px rgba(0,229,255,.7);}
 </style>
 </head>
 <body>
@@ -56,6 +63,12 @@
     <div class="bar"></div><div class="fill" id="fill"></div>
   </div>
 
+  <!-- CTA: teks daripada pengguna, tepat seperti diberikan -->
+  <div class="cta" id="cta">
+    <div class="msg">Cepat hubungi kami untuk sahkan slot yang tersedia sekarang sebelum penuh</div>
+    <div class="num">0109391557</div>
+  </div>
+
   <script src="gsap.min.js"></script>
   <script>
     const tl = gsap.timeline({ paused: true });
@@ -74,6 +87,9 @@
       .to("#taut",{opacity:0,duration:.6},31.4).to("#slack",{opacity:1,duration:.6},31.4)
       .set("#fill",{opacity:1},33.2).to("#fill",{scaleX:1,duration:1.4,ease:"power1.inOut"},33.2)
       .to("#p3",{opacity:0,duration:.3},35.0);
+    // CTA 138.8 - akhir (146.17)
+    tl.fromTo("#cta",{opacity:0,y:40},{opacity:1,y:0,duration:.45,ease:"power2.out"},138.8)
+      .fromTo(".cta .num",{scale:1},{scale:1.04,duration:.6,yoyo:true,repeat:9,ease:"sine.inOut",svgOrigin:undefined},139.4);
     window.__timelines = window.__timelines || {};
     window.__timelines["root"] = tl;
   </script>
