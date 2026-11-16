@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=720, height=1280">
+<style>
+  html,body{margin:0;background:#05070a;}
+  #root{position:relative;width:720px;height:1280px;overflow:hidden;background:#05070a;}
+  #src{position:absolute;left:0;top:0;width:720px;height:1280px;object-fit:cover;}
+  .vig{position:absolute;inset:0;opacity:0;pointer-events:none;
+       background:radial-gradient(ellipse at 50% 55%,rgba(5,7,10,0) 45%,rgba(5,7,10,.55) 100%);}
+  .panel{position:absolute;left:418px;top:40px;width:262px;height:196px;opacity:0;
+         background:rgba(6,9,14,.82);border:1.5px solid #00e5ff;border-radius:14px;
+         box-shadow:0 0 18px rgba(0,229,255,.55), inset 0 0 22px rgba(0,229,255,.18);}
+  .panel svg{position:absolute;left:0;top:0;width:262px;height:196px;overflow:visible;}
+  .glow{filter:drop-shadow(0 0 5px #00e5ff);}
+  .bar{position:absolute;left:30px;top:150px;width:202px;height:12px;border-radius:6px;
+       background:rgba(0,229,255,.15);}
+  .fill{position:absolute;left:30px;top:150px;width:202px;height:12px;border-radius:6px;
+        background:#00e5ff;box-shadow:0 0 12px #00e5ff;transform-origin:0 50%;transform:scaleX(0);opacity:0;}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="root" data-width="720" data-height="1280" data-start="0" data-duration="146.17">
+  <video id="src" src="footage.mp4" data-start="0" data-duration="146.17" data-has-audio="true" playsinline></video>
+  <div class="vig" id="vig"></div>
+
+  <!-- E1: skema sendi lutut neutral, ligamen disorot (tiada dakwaan koyak) -->
+  <div class="panel" id="p1">
+    <svg viewBox="0 0 262 196" class="glow">
+      <path d="M118 14 L112 96 M144 14 L150 96" stroke="#00e5ff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".55"/>
+      <path d="M104 100 Q131 122 158 100" stroke="#00e5ff" stroke-width="3" fill="none" opacity=".8"/>
+      <path d="M112 112 L150 112 M112 112 L112 184 M150 112 L150 184" stroke="#00e5ff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".55"/>
+      <path id="lig" d="M118 98 L146 116 M146 98 L118 116" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- E2: tolok sudut, jarum berhenti sebelum penuh -->
+  <div class="panel" id="p2" style="left:40px">
+    <svg viewBox="0 0 262 196" class="glow">
+      <path d="M36 150 A100 100 0 0 1 226 150" stroke="#00e5ff" stroke-opacity=".28" stroke-width="8" fill="none" stroke-dasharray="6 8" stroke-linecap="round"/>
+      <path d="M36 150 A100 100 0 0 1 112 55" stroke="#00e5ff" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <line x1="112" y1="38" x2="112" y2="72" stroke="#ffffff" stroke-width="3"/>
+      <circle cx="131" cy="150" r="7" fill="#00e5ff"/>
+      <g id="needle"><line x1="131" y1="150" x2="43" y2="150" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/></g>
+    </svg>
+  </div>
+
+  <!-- E3: tegang -> lembut, kemudian kuat -->
+  <div class="panel" id="p3">
+    <svg viewBox="0 0 262 196" class="glow">
+      <path id="taut" d="M30 70 L232 70" stroke="#00e5ff" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path id="slack" d="M30 70 Q131 112 232 70" stroke="#00e5ff" stroke-width="5" stroke-linecap="round" fill="none" opacity="0"/>
+      <circle cx="30" cy="70" r="6" fill="#fff"/><circle cx="232" cy="70" r="6" fill="#fff"/>
+    </svg>
+    <div class="bar"></div><div class="fill" id="fill"></div>
+  </div>
+
+  <script src="gsap.min.js"></script>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // masa = masa rakaman asal (komposisi 1:1 dengan footage)
+    // E1 17.0-20.0
+    tl.to("#p1",{opacity:1,duration:.3},17.0).to("#vig",{opacity:1,duration:.4},17.0)
+      .fromTo("#lig",{opacity:.35},{opacity:1,duration:.5,repeat:3,yoyo:true},17.3)
+      .to("#p1",{opacity:0,duration:.3},19.7).to("#vig",{opacity:0,duration:.4},19.6);
+    // E2 21.5-24.0
+    tl.to("#p2",{opacity:1,duration:.3},21.5)
+      .fromTo("#needle",{rotation:0,svgOrigin:"131 150"},{rotation:60,svgOrigin:"131 150",duration:1.0,ease:"power2.out"},21.8)
+      .to("#needle",{rotation:63,svgOrigin:"131 150",duration:.15,yoyo:true,repeat:3},22.9)
+      .to("#p2",{opacity:0,duration:.25},23.7);
+    // E3 31.0-35.2
+    tl.to("#p3",{opacity:1,duration:.3},30.8)
+      .to("#taut",{opacity:0,duration:.6},31.4).to("#slack",{opacity:1,duration:.6},31.4)
+      .set("#fill",{opacity:1},33.2).to("#fill",{scaleX:1,duration:1.4,ease:"power1.inOut"},33.2)
+      .to("#p3",{opacity:0,duration:.3},35.0);
+    window.__timelines = window.__timelines || {};
+    window.__timelines["root"] = tl;
+  </script>
+</div>
+</body>
+</html>

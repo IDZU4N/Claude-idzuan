@@ -1,0 +1,6 @@
+source/
+qc/
+hf/.hyperframes/
+hf/node_modules/
+hf/renders/
+*.mp4
