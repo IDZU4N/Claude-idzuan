@@ -1,0 +1,1713 @@
+{
+ "total_s": 1514.14,
+ "scenes": [
+  {
+   "scene": "pembukaan",
+   "start": 0.0,
+   "dur": 31.0,
+   "music": "full",
+   "audio": [],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2113",
+     "in": 0.0,
+     "dur": 7.5,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2114",
+     "in": 7.2,
+     "dur": 7.5,
+     "sync": false,
+     "dissolve": 0.8,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2107",
+     "in": 0.5,
+     "dur": 6.5,
+     "sync": false,
+     "dissolve": 0.8,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2133",
+     "in": 50.4,
+     "dur": 6.2,
+     "sync": false,
+     "dissolve": 0.8,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2111",
+     "in": 0.8,
+     "dur": 6.5,
+     "sync": false,
+     "dissolve": 0.8,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "ketibaan",
+   "start": 30.0,
+   "dur": 64.2,
+   "music": "full",
+   "audio": [
+    {
+     "src": "IMG_2126",
+     "in": 0.0,
+     "out": 9.8,
+     "bus": "amb",
+     "gain_db": -3
+    },
+    {
+     "src": "IMG_2128",
+     "in": 2.0,
+     "out": 13.5,
+     "bus": "amb",
+     "gain_db": -3
+    },
+    {
+     "src": "IMG_2103",
+     "in": 0.0,
+     "out": 19.0,
+     "bus": "amb",
+     "gain_db": -3
+    },
+    {
+     "src": "IMG_2104",
+     "in": 1.5,
+     "out": 16.5,
+     "bus": "amb",
+     "gain_db": -3
+    },
+    {
+     "src": "IMG_2106",
+     "in": 5.0,
+     "out": 15.5,
+     "bus": "amb",
+     "gain_db": -3
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2126",
+     "in": 0.0,
+     "dur": 9.8,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2128",
+     "in": 2.0,
+     "dur": 11.5,
+     "sync": true,
+     "dissolve": 0.4,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2103",
+     "in": 0.0,
+     "dur": 19.0,
+     "sync": true,
+     "dissolve": 0.4,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2104",
+     "in": 1.5,
+     "dur": 15.0,
+     "sync": true,
+     "dissolve": 0.4,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2106",
+     "in": 5.0,
+     "dur": 10.5,
+     "sync": true,
+     "dissolve": 0.4,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "bersiap",
+   "start": 93.3,
+   "dur": 18.5,
+   "music": "full",
+   "audio": [],
+   "shots": [
+    {
+     "kind": "photo",
+     "src": "IMG_2102",
+     "in": 0.0,
+     "dur": 5.5,
+     "sync": false,
+     "dissolve": 0.8,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2110",
+     "in": 3.6,
+     "dur": 6.0,
+     "sync": false,
+     "dissolve": 0.8,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2125",
+     "in": 29.0,
+     "dur": 8.4,
+     "sync": false,
+     "dissolve": 0.6,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "doa_pembuka",
+   "start": 110.8,
+   "dur": 32.9,
+   "music": "off",
+   "audio": [
+    {
+     "src": "IMG_2130",
+     "in": 4.1,
+     "out": 37.0,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2130",
+     "in": 4.1,
+     "dur": 15.9,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.25,
+       1.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2130",
+     "in": 20.0,
+     "dur": 17.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "aluan_1",
+   "start": 142.7,
+   "dur": 67.963,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2131",
+     "in": 0.9,
+     "out": 68.863,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 0.9,
+     "dur": 8.9,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "photo",
+     "src": "IMG_2129",
+     "in": 0.0,
+     "dur": 7.4,
+     "sync": false,
+     "dissolve": 0.5,
+     "opts": {
+      "z0": 1.0,
+      "z1": 1.06,
+      "c0": [
+       0.5,
+       0.35
+      ],
+      "c1": [
+       0.5,
+       0.35
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 16.2,
+     "dur": 12.8,
+     "sync": true,
+     "dissolve": 0.5,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2111",
+     "in": 7.4,
+     "dur": 2.8,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 31.8,
+     "dur": 15.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "photo",
+     "src": "IMG_2137",
+     "in": 0.0,
+     "dur": 8.1,
+     "sync": false,
+     "dissolve": 0.5,
+     "opts": {
+      "z0": 1.0,
+      "z1": 1.06,
+      "c0": [
+       0.5,
+       0.85
+      ],
+      "c1": [
+       0.5,
+       0.8
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 53.9,
+     "dur": 14.963,
+     "sync": true,
+     "dissolve": 0.5,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "scene": "aluan_2",
+   "start": 210.213,
+   "dur": 272.31,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2131",
+     "in": 72.925,
+     "out": 345.235,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 72.925,
+     "dur": 3.075,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 76.0,
+     "dur": 8.3,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.5,
+       0.04999999999999982,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 84.3,
+     "dur": 16.9,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 101.2,
+     "dur": 21.2,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 122.4,
+     "dur": 11.8,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2126",
+     "in": 1.2,
+     "dur": 5.3,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "photo",
+     "src": "IMG_2135",
+     "in": 0.0,
+     "dur": 11.5,
+     "sync": false,
+     "dissolve": 0.5,
+     "opts": {
+      "mode": "fit",
+      "z0": 1.0,
+      "z1": 1.07
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 150.0,
+     "dur": 21.4,
+     "sync": true,
+     "dissolve": 0.5,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 171.4,
+     "dur": 11.5,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 182.9,
+     "dur": 23.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 205.9,
+     "dur": 14.3,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.35,
+       0.8857142857142857,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 220.2,
+     "dur": 12.9,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.5,
+       0.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 233.1,
+     "dur": 17.7,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2110",
+     "in": 4.0,
+     "dur": 7.2,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 258.0,
+     "dur": 7.6,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 265.6,
+     "dur": 11.6,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.5,
+       1.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 277.2,
+     "dur": 19.1,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 296.3,
+     "dur": 16.9,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.6,
+       0.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 313.2,
+     "dur": 6.2,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2107",
+     "in": 1.0,
+     "dur": 5.1,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "photo",
+     "src": "IMG_2148",
+     "in": 0.0,
+     "dur": 4.7,
+     "sync": false,
+     "dissolve": 0.5,
+     "opts": {
+      "mode": "fill",
+      "z0": 1.0,
+      "z1": 1.08,
+      "c0": [
+       0.5,
+       0.64
+      ],
+      "c1": [
+       0.5,
+       0.6
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 328.2,
+     "dur": 17.035,
+     "sync": true,
+     "dissolve": 0.5,
+     "opts": {
+      "push": [
+       1.25,
+       1.0,
+       0.0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "scene": "wakil_salam",
+   "start": 481.823,
+   "dur": 44.698,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2131",
+     "in": 351.302,
+     "out": 396.0,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 351.302,
+     "dur": 14.698,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 366.0,
+     "dur": 30.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.45,
+       1.0,
+       0.0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "scene": "wakil_pantun",
+   "start": 525.971,
+   "dur": 37.94,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2131",
+     "in": 467.301,
+     "out": 505.241,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 467.301,
+     "dur": 12.699,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.3,
+       1.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 480.0,
+     "dur": 25.241,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "hajat",
+   "start": 563.361,
+   "dur": 52.791,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2131",
+     "in": 509.455,
+     "out": 562.246,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 509.455,
+     "dur": 52.791,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "adat_melayu",
+   "start": 615.602,
+   "dur": 46.845,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2131",
+     "in": 565.7,
+     "out": 612.545,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 565.7,
+     "dur": 13.3,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 579.0,
+     "dur": 13.4,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2111",
+     "in": 0.8,
+     "dur": 7.4,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2113",
+     "in": 6.4,
+     "dur": 7.2,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 607.0,
+     "dur": 5.545,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "sirih_pinang",
+   "start": 661.947,
+   "dur": 8.887,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2131",
+     "in": 619.238,
+     "out": 628.125,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 619.238,
+     "dur": 8.887,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "bunga_rampai",
+   "start": 670.334,
+   "dur": 15.145,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2131",
+     "in": 631.182,
+     "out": 646.327,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2114",
+     "in": 15.5,
+     "dur": 6.818,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 638.0,
+     "dur": 8.327,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "bunga_rampai_pantun",
+   "start": 685.029,
+   "dur": 13.396,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2131",
+     "in": 663.81,
+     "out": 677.206,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2131",
+     "in": 663.81,
+     "dur": 13.396,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "scene": "bunga_rampai_tetamu",
+   "start": 697.625,
+   "dur": 21.965,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2132",
+     "in": 13.324,
+     "out": 35.289,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2132",
+     "in": 13.324,
+     "dur": 21.965,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "bau_bunga_rampai",
+   "start": 719.09,
+   "dur": 14.505,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2132",
+     "in": 47.589,
+     "out": 62.094,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2132",
+     "in": 47.589,
+     "dur": 14.505,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "soal_jawab",
+   "start": 732.795,
+   "dur": 81.82,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2132",
+     "in": 137.08,
+     "out": 218.9,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2132",
+     "in": 137.08,
+     "dur": 15.42,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2132",
+     "in": 152.5,
+     "dur": 17.5,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2132",
+     "in": 170.0,
+     "dur": 20.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2132",
+     "in": 190.0,
+     "dur": 28.9,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "cincin",
+   "start": 813.815,
+   "dur": 49.682,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2133",
+     "in": 14.842,
+     "out": 64.524,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2133",
+     "in": 14.842,
+     "dur": 49.682,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "peranan_perempuan",
+   "start": 862.997,
+   "dur": 15.196,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2133",
+     "in": 68.104,
+     "out": 83.3,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2133",
+     "in": 68.104,
+     "dur": 15.196,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "syarat_1",
+   "start": 877.643,
+   "dur": 84.9,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2133",
+     "in": 86.9,
+     "out": 171.8,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2133",
+     "in": 86.9,
+     "dur": 23.1,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2133",
+     "in": 110.0,
+     "dur": 30.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2133",
+     "in": 140.0,
+     "dur": 20.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2133",
+     "in": 160.0,
+     "dur": 11.8,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "syarat_inkar_a",
+   "start": 961.743,
+   "dur": 29.085,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2139",
+     "in": 143.715,
+     "out": 172.8,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 143.715,
+     "dur": 29.085,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "syarat_inkar_b",
+   "start": 990.278,
+   "dur": 42.587,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2139",
+     "in": 217.313,
+     "out": 259.9,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 217.313,
+     "dur": 22.687,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 240.0,
+     "dur": 19.9,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "kesaksian",
+   "start": 1032.365,
+   "dur": 22.366,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2139",
+     "in": 262.698,
+     "out": 285.064,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 262.698,
+     "dur": 22.366,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "hantaran",
+   "start": 1054.131,
+   "dur": 65.289,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2139",
+     "in": 358.7,
+     "out": 423.989,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2107",
+     "in": 3.5,
+     "dur": 9.9,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 368.6,
+     "dur": 14.4,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2114",
+     "in": 14.0,
+     "dur": 9.0,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 392.0,
+     "dur": 8.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2111",
+     "in": 1.0,
+     "dur": 8.0,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 408.0,
+     "dur": 15.989,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "sejarah_kampung",
+   "start": 1118.87,
+   "dur": 43.841,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2139",
+     "in": 470.886,
+     "out": 514.727,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 470.886,
+     "dur": 43.841,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "pengisytiharan",
+   "start": 1162.161,
+   "dur": 20.463,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2139",
+     "in": 514.727,
+     "out": 535.19,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 514.727,
+     "dur": 20.463,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "pantun_penutup",
+   "start": 1182.074,
+   "dur": 64.9,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2139",
+     "in": 547.0,
+     "out": 611.9,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 547.0,
+     "dur": 31.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {
+      "push": [
+       1.3,
+       0.8466666666666666,
+       0.0
+      ]
+     }
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 578.0,
+     "dur": 13.8,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2139",
+     "in": 591.8,
+     "dur": 20.1,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "doa",
+   "start": 1245.774,
+   "dur": 112.0,
+   "music": "off",
+   "audio": [
+    {
+     "src": "IMG_2140",
+     "in": 0.5,
+     "out": 112.5,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2140",
+     "in": 0.5,
+     "dur": 112.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "penutup_a",
+   "start": 1356.774,
+   "dur": 22.266,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2141",
+     "in": 0.8,
+     "out": 23.066,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2141",
+     "in": 0.8,
+     "dur": 22.266,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "penutup_b",
+   "start": 1378.44,
+   "dur": 10.0,
+   "music": "duck",
+   "audio": [
+    {
+     "src": "IMG_2141",
+     "in": 103.8,
+     "out": 113.8,
+     "bus": "dlg",
+     "gain_db": 0.0
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2141",
+     "in": 103.8,
+     "dur": 10.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "sarung_cincin",
+   "start": 1387.04,
+   "dur": 35.5,
+   "music": "full",
+   "audio": [
+    {
+     "src": "IMG_2144",
+     "in": 0.0,
+     "out": 35.5,
+     "bus": "amb",
+     "gain_db": -2
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2144",
+     "in": 0.0,
+     "dur": 35.5,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "reaksi",
+   "start": 1421.54,
+   "dur": 26.0,
+   "music": "full",
+   "audio": [],
+   "shots": [
+    {
+     "kind": "photo",
+     "src": "IMG_2145",
+     "in": 0.0,
+     "dur": 6.0,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "photo",
+     "src": "IMG_2146",
+     "in": 0.0,
+     "dur": 5.5,
+     "sync": false,
+     "dissolve": 1.0,
+     "opts": {}
+    },
+    {
+     "kind": "photo",
+     "src": "IMG_2150",
+     "in": 0.0,
+     "dur": 6.0,
+     "sync": false,
+     "dissolve": 1.0,
+     "opts": {}
+    },
+    {
+     "kind": "photo",
+     "src": "IMG_2151",
+     "in": 0.0,
+     "dur": 5.5,
+     "sync": false,
+     "dissolve": 1.0,
+     "opts": {}
+    },
+    {
+     "kind": "photo",
+     "src": "IMG_2149",
+     "in": 0.0,
+     "dur": 7.0,
+     "sync": false,
+     "dissolve": 1.0,
+     "opts": {
+      "mode": "fit"
+     }
+    }
+   ]
+  },
+  {
+   "scene": "potret_keluarga",
+   "start": 1446.54,
+   "dur": 16.4,
+   "music": "full",
+   "audio": [
+    {
+     "src": "IMG_2157",
+     "in": 0.0,
+     "out": 8.0,
+     "bus": "amb",
+     "gain_db": -3
+    },
+    {
+     "src": "IMG_2158",
+     "in": 2.0,
+     "out": 10.8,
+     "bus": "amb",
+     "gain_db": -3
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2157",
+     "in": 0.0,
+     "dur": 8.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2158",
+     "in": 2.0,
+     "dur": 8.8,
+     "sync": true,
+     "dissolve": 0.4,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "potret_foto",
+   "start": 1461.94,
+   "dur": 11.5,
+   "music": "full",
+   "audio": [],
+   "shots": [
+    {
+     "kind": "photo",
+     "src": "IMG_2154",
+     "in": 0.0,
+     "dur": 6.0,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {
+      "mode": "fit",
+      "z0": 1.0,
+      "z1": 1.07
+     }
+    },
+    {
+     "kind": "photo",
+     "src": "IMG_2155",
+     "in": 0.0,
+     "dur": 6.5,
+     "sync": false,
+     "dissolve": 1.0,
+     "opts": {
+      "z0": 1.0,
+      "z1": 1.06,
+      "c0": [
+       0.5,
+       0.4
+      ],
+      "c1": [
+       0.5,
+       0.4
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "scene": "selepas_majlis",
+   "start": 1472.24,
+   "dur": 34.5,
+   "music": "full",
+   "audio": [
+    {
+     "src": "IMG_2143",
+     "in": 0.0,
+     "out": 13.0,
+     "bus": "amb",
+     "gain_db": -4
+    },
+    {
+     "src": "IMG_2163",
+     "in": 0.0,
+     "out": 12.0,
+     "bus": "amb",
+     "gain_db": -3
+    },
+    {
+     "src": "IMG_2168",
+     "in": 20.5,
+     "out": 31.0,
+     "bus": "amb",
+     "gain_db": -3
+    }
+   ],
+   "shots": [
+    {
+     "kind": "clip",
+     "src": "IMG_2143",
+     "in": 0.0,
+     "dur": 13.0,
+     "sync": true,
+     "dissolve": 0.0,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2163",
+     "in": 0.0,
+     "dur": 12.0,
+     "sync": true,
+     "dissolve": 0.5,
+     "opts": {}
+    },
+    {
+     "kind": "clip",
+     "src": "IMG_2168",
+     "in": 20.5,
+     "dur": 10.5,
+     "sync": true,
+     "dissolve": 0.5,
+     "opts": {}
+    }
+   ]
+  },
+  {
+   "scene": "penutup",
+   "start": 1505.14,
+   "dur": 9.0,
+   "music": "full",
+   "audio": [],
+   "shots": [
+    {
+     "kind": "photo",
+     "src": "IMG_2156",
+     "in": 0.0,
+     "dur": 9.0,
+     "sync": false,
+     "dissolve": 0.0,
+     "opts": {
+      "z0": 1.06,
+      "z1": 1.0,
+      "c0": [
+       0.5,
+       0.45
+      ],
+      "c1": [
+       0.5,
+       0.45
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}
