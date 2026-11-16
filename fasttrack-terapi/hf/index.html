@@ -9,7 +9,7 @@
   #src{position:absolute;left:0;top:0;width:720px;height:1280px;object-fit:cover;}
   .vig{position:absolute;inset:0;opacity:0;pointer-events:none;
        background:radial-gradient(ellipse at 50% 55%,rgba(5,7,10,0) 45%,rgba(5,7,10,.55) 100%);}
-  .panel{position:absolute;left:418px;top:40px;width:262px;height:196px;opacity:0;
+  .panel{position:absolute;left:418px;top:140px;width:262px;height:196px;opacity:0;
          background:rgba(6,9,14,.82);border:1.5px solid #00e5ff;border-radius:14px;
          box-shadow:0 0 18px rgba(0,229,255,.55), inset 0 0 22px rgba(0,229,255,.18);}
   .panel svg{position:absolute;left:0;top:0;width:262px;height:196px;overflow:visible;}
@@ -18,7 +18,7 @@
        background:rgba(0,229,255,.15);}
   .fill{position:absolute;left:30px;top:150px;width:202px;height:12px;border-radius:6px;
         background:#00e5ff;box-shadow:0 0 12px #00e5ff;transform-origin:0 50%;transform:scaleX(0);opacity:0;}
-  .cta{position:absolute;left:36px;top:1006px;width:648px;height:226px;opacity:0;box-sizing:border-box;
+  .cta{position:absolute;left:36px;top:170px;width:648px;height:226px;opacity:0;box-sizing:border-box;
        background:rgba(6,9,14,.88);border:2px solid #00e5ff;border-radius:18px;
        box-shadow:0 0 22px rgba(0,229,255,.6), inset 0 0 26px rgba(0,229,255,.2);
        font-family:'DejaVu Sans','Arial',sans-serif;text-align:center;color:#fff;}
@@ -28,12 +28,14 @@
 </style>
 </head>
 <body>
-<div id="root" data-composition-id="root" data-width="720" data-height="1280" data-start="0" data-duration="146.17">
+<div id="root" data-composition-id="root" data-width="720" data-height="1280" data-start="0" data-duration="152">
+  <img id="endcard" src="endcard.png" style="position:absolute;left:0;top:0;width:720px;height:1280px;opacity:0" data-start="146.1" data-duration="5.9">
   <video id="src" src="footage.mp4" data-start="0" data-duration="146.17" data-has-audio="true" playsinline></video>
   <div class="vig" id="vig"></div>
+  <audio id="vo" src="cta_vo.wav" data-start="143.3" data-duration="7.2" data-volume="1"></audio>
 
   <!-- E1: skema sendi lutut neutral, ligamen disorot (tiada dakwaan koyak) -->
-  <div class="panel" id="p1">
+  <div class="panel" id="p1" style="left:40px">
     <svg viewBox="0 0 262 196" class="glow">
       <path d="M118 14 L112 96 M144 14 L150 96" stroke="#00e5ff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".55"/>
       <path d="M104 100 Q131 122 158 100" stroke="#00e5ff" stroke-width="3" fill="none" opacity=".8"/>
@@ -66,17 +68,17 @@
   <!-- CTA: teks daripada pengguna, tepat seperti diberikan -->
   <div class="cta" id="cta">
     <div class="msg">Cepat hubungi kami untuk sahkan slot yang tersedia sekarang sebelum penuh</div>
-    <div class="num">0109391557</div>
+    <div class="num">010-939 1557</div>
   </div>
 
   <script src="gsap.min.js"></script>
   <script>
     const tl = gsap.timeline({ paused: true });
     // masa = masa rakaman asal (komposisi 1:1 dengan footage)
-    // E1 17.0-20.0
+    // E1 17.0-18.9 (berhenti sebelum potongan ke gambar luas ~19.0)
     tl.to("#p1",{opacity:1,duration:.3},17.0).to("#vig",{opacity:1,duration:.4},17.0)
       .fromTo("#lig",{opacity:.35},{opacity:1,duration:.5,repeat:3,yoyo:true},17.3)
-      .to("#p1",{opacity:0,duration:.3},19.7).to("#vig",{opacity:0,duration:.4},19.6);
+      .to("#p1",{opacity:0,duration:.25},18.65).to("#vig",{opacity:0,duration:.3},18.6);
     // E2 21.5-24.0
     tl.to("#p2",{opacity:1,duration:.3},21.5)
       .fromTo("#needle",{rotation:0,svgOrigin:"131 150"},{rotation:60,svgOrigin:"131 150",duration:1.0,ease:"power2.out"},21.8)
@@ -87,9 +89,10 @@
       .to("#taut",{opacity:0,duration:.6},31.4).to("#slack",{opacity:1,duration:.6},31.4)
       .set("#fill",{opacity:1},33.2).to("#fill",{scaleX:1,duration:1.4,ease:"power1.inOut"},33.2)
       .to("#p3",{opacity:0,duration:.3},35.0);
-    // CTA 138.8 - akhir (146.17)
-    tl.fromTo("#cta",{opacity:0,y:40},{opacity:1,y:0,duration:.45,ease:"power2.out"},138.8)
-      .fromTo(".cta .num",{scale:1},{scale:1.04,duration:.6,yoyo:true,repeat:9,ease:"sine.inOut",svgOrigin:undefined},139.4);
+    // CTA 143.1 - akhir (152). Kad di zon atas yang selamat; VO bermula 143.3 selepas dialog pesakit tamat
+    tl.set("#endcard",{opacity:1},146.1)
+      .fromTo("#cta",{opacity:0,y:-30},{opacity:1,y:0,duration:.45,ease:"power2.out"},143.1)
+      .fromTo(".cta .num",{scale:1},{scale:1.04,duration:.6,yoyo:true,repeat:9,ease:"sine.inOut"},143.6);
     window.__timelines = window.__timelines || {};
     window.__timelines["root"] = tl;
   </script>
